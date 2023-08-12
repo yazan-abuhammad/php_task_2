@@ -25,14 +25,14 @@
     </form>
 
     <?php
+    include 'conaction.php';
     if (isset($_POST['Submit'])); {
         $username = $_POST['username'];
         $password = $_POST['password'];
-
-        $connection = mysqli_connect('localhost', 'root', '', 'loginapp');
     }
-    $query = "INSERT INTO users (username,password)";
+    $query = "INSERT INTO users (name,password)";
     $query .= "VALUES ('$username','$password')";
+
     mysqli_query($connection, $query);
 
     ?>

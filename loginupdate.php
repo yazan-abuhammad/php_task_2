@@ -9,36 +9,39 @@
 </head>
 
 <body>
-
-    <form action="test.php" method="post">
+    <?php
+    include 'conaction.php';
+    include 'function.php';
+    update();
+    delete();
+    ?>
+    <form action="loginupdate.php" method="post">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">username</label>
-            <input type="text" class="form-control" name="username" id="exampleInputusername" aria-describedby="usernameHelp">
+            <input type="username" class="form-control" name="username" id="exampleInputusername" aria-describedby="usernameHelp">
             <div id="usernameHelp" class="form-text">We'll never share your username with anyone else.</div>
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
             <input type="password" class="form-control" name="password" id="exampleInputPassword1">
         </div>
+        <div class="mb-3">
 
-        <button type="submit" class="btn btn-primary" value="Submit" name="Submit">Submit </button>
+            <select name="id" id="id">
+                <?php
+                showData()
+                ?>
+            </select>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary" value="Submit" name="update">update </button>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary" value="Submit" name="deleteRows">delete </button>
+        </div>
     </form>
 
-    <?php
-    if (isset($_POST['Submit'])); {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        echo $username;
-        $connection = mysqli_connect('localhost', 'root', '', 'loginapp');
-        $query = "INSERT INTO users(name , password) VALUES ('$username' , '$password')";
-        $send = mysqli_query($connection, $query);
-        if (!$connection) {
-            echo 'prob';
-        }
-    }
 
-
-    ?>
 
 </body>
 

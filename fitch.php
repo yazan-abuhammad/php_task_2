@@ -1,13 +1,7 @@
 <?php
-include('conaction.php');
+include 'conaction.php';
 
 
-$connection = mysqli_connect('localhost', 'root', '', 'loginapp');
-if ($connection) {
-    echo 'go';
-} else {
-    echo "no";
-}
 echo '<BR>';
 $query = "SELECT * FROM users";
 
@@ -27,7 +21,6 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 
 
-
 // while ($row = mysqli_fetch_row($result)) {
-//     print_r($row);
+// print_r($row);
 // }
